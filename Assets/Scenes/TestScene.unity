@@ -380,5 +380,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reflector
       objectReference: {fileID: 0}
+    - target: {fileID: 3641099563601441483, guid: e77a2e5f9fdac1c4d96d0a1c047f1019, type: 3}
+      propertyPath: m_TagString
+      value: Reflector
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e77a2e5f9fdac1c4d96d0a1c047f1019, type: 3}
