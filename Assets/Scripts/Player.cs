@@ -181,4 +181,12 @@ public class Player : MonoBehaviour
         return false;
     }
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        
+        if (other.CompareTag("Hazard"))
+        {
+            transform.position = GameObject.FindWithTag("Spawn").transform.position;
+        }
+    }
+
 }
