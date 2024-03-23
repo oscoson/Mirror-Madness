@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
-using System.Linq;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] Collider2D groundTrigger;
     [SerializeField] Collider2D leftSideTrigger;
     [SerializeField] Collider2D rightSideTrigger;
+
+    bool pressedJump = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            pressedJump = true;
+        }
     }
 
     private void FixedUpdate()
@@ -68,29 +73,32 @@ public class Player : MonoBehaviour
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 vel.y = 4.0f;
-                Debug.Log("jump");
+            }
+        }
+        else
+        {
+            if (isTouchingLeft)
+            {
+                if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    vel.y = 4.0f;
+                    vel.x = 4.0f;
+                }
+            }
+
+            if (isTouchingRight)
+            {
+                if (pressedJump)
+                {
+                    vel.y = 4.0f;
+                    vel.x = -4.0f;
+                }
             }
         }
 
-        if (isTouchingLeft)
-        {
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                vel.y = 4.0f;
-                vel.x = 4.0f;
-            }
-        }
-
-        if (isTouchingRight)
-        {
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                vel.y = 4.0f;
-                vel.x = -4.0f;
-            }
-        }
         rb.velocity = vel;
 
+        pressedJump = false;
     }
     private bool IsTouchingLeft()
     {
