@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections.Generic;
 
-public class MirrorShadow : MonoBehaviour
+public class ReflectZone : MonoBehaviour
 {
     
     SpriteRenderer sr;
     
     public List<Collider2D> touching;
 
-    private ReflectMirror reflectMirror;
+    private Reflector reflector;
 
 
     void Start()
     {
         touching = new List<Collider2D>();
-        reflectMirror = GetComponentInParent<ReflectMirror>();
+        reflector = GetComponentInParent<Reflector>();
 
         sr = GetComponent<SpriteRenderer>();
         sr.color = new Color(0, 0, 0, 0.25f);
@@ -30,32 +30,32 @@ public class MirrorShadow : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collider)
     {
-        // Check if the collider is colliding with the reflectMirror
+        // Check if the collider is colliding with the reflector
         Collider2D[] colliders = Physics2D.OverlapAreaAll(collider.bounds.min, collider.bounds.max);
-        bool isCollidingWithReflectMirror = false;
+        bool isCollidingWithreflector = false;
         foreach (Collider2D col in colliders)
         {
-            if (col.gameObject == reflectMirror.gameObject)
+            if (col.gameObject == reflector.gameObject)
             {
-                isCollidingWithReflectMirror = true;
-                reflectMirror.RemoveReflectedObject(collider.gameObject);
+                isCollidingWithreflector = true;
+                reflector.RemoveReflectedObject(collider.gameObject);
                 break;
             }
         }
 
-        if (!isCollidingWithReflectMirror)
+        if (!isCollidingWithreflector && collider.gameObject.tag == "Reflectable" && !touching.Contains(collider))
         {
             touching.Add(collider);
-            reflectMirror.Reflect(collider.gameObject);
+            reflector.Reflect(collider.gameObject);
         }
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Mirrorable" && touching.Contains(collider))
+        if (collider.gameObject.tag == "Reflectable" && touching.Contains(collider))
         {
             touching.Remove(collider);
-            reflectMirror.RemoveReflectedObject(collider.gameObject);
+            reflector.RemoveReflectedObject(collider.gameObject);
         }
     }
 

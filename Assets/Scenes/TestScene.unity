@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 780903492}
   m_Layer: 0
   m_Name: Box
-  m_TagString: Mirrorable
+  m_TagString: Reflectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -393,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3641099563601441483, guid: e77a2e5f9fdac1c4d96d0a1c047f1019, type: 3}
       propertyPath: m_Name
-      value: Mirror
+      value: Reflector
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e77a2e5f9fdac1c4d96d0a1c047f1019, type: 3}
