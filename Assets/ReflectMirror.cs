@@ -9,6 +9,16 @@ public class ReflectMirror : MonoBehaviour
 
     void Update()
     {
+        // If the object to reflect is null, kill the reflected object
+        if (!objectToReflect)
+        {
+            print("Object to reflect is null");
+            if (reflectedObject)
+            {
+                Destroy(reflectedObject);
+            }
+            return;
+        }
 
         // If the object to reflect is null, define a new object to reflect
         if (!reflectedObject) {
@@ -17,6 +27,8 @@ public class ReflectMirror : MonoBehaviour
             sr.color = new Color(1, 0, 0, 0.5f);
             sr.flipY = true;
         }
+
+        // Get all objects in a square 
         
         // Get the angle relative to the x-axis
         Vector2 axis = Quaternion.Euler(0f, 0f, transform.rotation.eulerAngles.z) * Vector2.right;
