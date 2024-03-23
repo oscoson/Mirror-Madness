@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
     [SerializeField] Collider2D rightSideTrigger;
 
     bool pressedJump = false;
+    float horizontalSpeedCap = 5.0f;
+    float verticalWallJumpSpeed = 4.0f;
+    float horizontalWallJumpSpeed = 4.0f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,50 +43,70 @@ public class Player : MonoBehaviour
 
         Vector2 vel = rb.velocity;
 
+        float horizontalDirection = 0.0f;
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            horizontalDirection += -1f;
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            horizontalDirection += 1f;
+        }
+
         if (isGrounded)
         {
-            Vector2 horizontalDirection = Vector2.zero;
+            float coefficient = 0.5f;
 
-            float coefficient = 1.0f;
-
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (horizontalDirection >= 0f && vel.x < 0f)
             {
-                horizontalDirection += Vector2.left;
+                if (horizontalDirection == 0f)
+                {
+                    vel.x = Mathf.MoveTowards(vel.x, 0f, coefficient);
+                }
+                else
+                {
+                    vel.x += coefficient;
+                }
             }
-            if (Input.GetKey(KeyCode.RightArrow))
+            else if (horizontalDirection <= 0f && vel.x > 0f)
             {
-                horizontalDirection += Vector2.right;
+                if (horizontalDirection == 0f)
+                {
+                    vel.x = Mathf.MoveTowards(vel.x, 0f, coefficient);
+                }
+                else
+                {
+                    vel.x += -coefficient;
+                }
+            }
+            else
+            {
+                vel.x += coefficient * horizontalDirection;
             }
 
-            if (math.sign(horizontalDirection.x) != math.sign(vel.x))
+            if (pressedJump)
             {
-                coefficient = 2.0f;
-            }
-
-            rb.AddForce(coefficient * horizontalDirection * 20.0f);
-
-            if (vel.x < -5.0f)
-            {
-                vel.x = -5.0f;
-            }
-            if (vel.x > 5.0f)
-            {
-                vel.x = 5.0f;
-            }
-
-            if (Input.GetKey(KeyCode.UpArrow))
-            {
-                vel.y = 4.0f;
+                vel.y = verticalWallJumpSpeed;
             }
         }
         else
         {
+            float coefficient = 0.1f;
+            if (horizontalDirection > 0f)
+            {
+                vel.x += coefficient;
+            }
+            else if (horizontalDirection < 0f)
+            {
+                vel.x += -coefficient;
+            }
+
             if (isTouchingLeft)
             {
-                if (Input.GetKey(KeyCode.UpArrow))
+                if (pressedJump)
                 {
-                    vel.y = 4.0f;
-                    vel.x = 4.0f;
+                    vel.y = verticalWallJumpSpeed;
+                    vel.x = horizontalWallJumpSpeed;
                 }
             }
 
@@ -90,11 +114,14 @@ public class Player : MonoBehaviour
             {
                 if (pressedJump)
                 {
-                    vel.y = 4.0f;
-                    vel.x = -4.0f;
+                    vel.y = verticalWallJumpSpeed;
+                    vel.x = -horizontalWallJumpSpeed;
                 }
             }
+
         }
+
+        vel.x = Mathf.Clamp(vel.x, -horizontalSpeedCap, horizontalSpeedCap);
 
         rb.velocity = vel;
 
