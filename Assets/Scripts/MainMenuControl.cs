@@ -17,6 +17,11 @@ public class MainMenuControl : MonoBehaviour
         SceneManager.LoadScene("LevelSelector"); // Load Levels scene
     }
 
+    public void OpenMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu"); // Load MainMenu scene
+    }
+
     // Method called when the Settings button is clicked
     public void OpenSettings()
     {
