@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections.Generic;
 
-public class ReflectMirror : MonoBehaviour
+public class Reflector : MonoBehaviour
 {
     public Dictionary<GameObject, GameObject> reflectedObjects;
 
@@ -43,14 +43,14 @@ public class ReflectMirror : MonoBehaviour
         Vector2 axis = Quaternion.Euler(0f, 0f, transform.rotation.eulerAngles.z) * Vector2.right;
 
         // Get the positions
-        Vector2 mirrorPos = transform.position;
+        Vector2 reflectorPos = transform.position;
         Vector2 objPosition = obj.transform.position;
 
         // Get the reflected vector (based at the origin)
-        Vector2 reflectVec = ReflectAgainstAxis(objPosition - mirrorPos, axis);
+        Vector2 reflectVec = ReflectAgainstAxis(objPosition - reflectorPos, axis);
 
         // Move the reflected object to the reflected position
-        Vector2 reflectPos = reflectVec + mirrorPos;
+        Vector2 reflectPos = reflectVec + reflectorPos;
 
         // Rotate the reflected object (black magic)
         Quaternion newRot = Quaternion.FromToRotation(obj.transform.right, ReflectAgainstAxis(obj.transform.right, axis));
