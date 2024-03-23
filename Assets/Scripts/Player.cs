@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
         {
             foreach (Collider2D col in results)
             {
-                if (col != playerCollider)
+                if (col != playerCollider && col.gameObject.tag == "Reflectable")
                 {
                     return true;
                 }
@@ -153,7 +153,7 @@ public class Player : MonoBehaviour
         {
             foreach (Collider2D col in results)
             {
-                if (col != playerCollider)
+                if (col != playerCollider && col.gameObject.tag == "Reflectable")
                 {
                     return true;
                 }
@@ -171,7 +171,7 @@ public class Player : MonoBehaviour
         {
             foreach (Collider2D col in results)
             {
-                if (col != playerCollider)
+                if (col != playerCollider && col.gameObject.tag == "Reflectable")
                 {
                     return true;
                 }
