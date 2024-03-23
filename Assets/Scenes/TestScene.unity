@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 52489101}
   - component: {fileID: 52489103}
   - component: {fileID: 52489102}
+  - component: {fileID: 52489104}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -168,6 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca23e9d008a3d24a8064574257ac4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touching: []
 --- !u!212 &52489103
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -220,6 +222,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &52489104
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52489100}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &60700582
 GameObject:
   m_ObjectHideFlags: 0

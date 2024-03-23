@@ -24,4 +24,16 @@ public class MirrorShadow : MonoBehaviour
         transform.localPosition = new Vector3(0, -transform.localScale.y / 2 - 1, 0);
     }
 
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        print("Trigger Enter");
+        touching.Add(collider);
+    }
+
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        print("Trigger Exit");
+        touching.Remove(collider);
+    }
+
 }
