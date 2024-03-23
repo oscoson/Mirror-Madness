@@ -30,20 +30,9 @@ public class ReflectZone : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collider)
     {
-        // Check if the collider is colliding with the reflector
-        Collider2D[] colliders = Physics2D.OverlapAreaAll(collider.bounds.min, collider.bounds.max);
-        bool isCollidingWithreflector = false;
-        foreach (Collider2D col in colliders)
-        {
-            if (col.gameObject == reflector.gameObject)
-            {
-                isCollidingWithreflector = true;
-                reflector.RemoveReflectedObject(collider.gameObject);
-                break;
-            }
-        }
-
-        if (!isCollidingWithreflector && collider.gameObject.tag == "Reflectable")
+        if (collider.gameObject.tag == "Reflectable" && 
+            collider.gameObject.GetComponent<Reflectable>().reflections < Reflectable.maxReflections && 
+            !touching.Contains(collider))
         {
             touching.Add(collider);
             reflector.Reflect(collider.gameObject);

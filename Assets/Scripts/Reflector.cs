@@ -6,9 +6,16 @@ using System.Collections.Generic;
 public class Reflector : MonoBehaviour
 {
     public Dictionary<GameObject, GameObject> reflectedObjects;
+    private static List<GameObject> reflectors;
 
     void Start()
     {
+        if (reflectors == null)
+        {
+            reflectors = new List<GameObject>();
+        }
+
+        reflectors.Add(gameObject);
         reflectedObjects = new Dictionary<GameObject, GameObject>();
     }
 
@@ -38,7 +45,6 @@ public class Reflector : MonoBehaviour
 
     public void Reflect(GameObject obj)
     {
-
         // Get the angle relative to the x-axis
         Vector2 axis = Quaternion.Euler(0f, 0f, transform.rotation.eulerAngles.z) * Vector2.right;
 
@@ -71,8 +77,7 @@ public class Reflector : MonoBehaviour
     {
         GameObject reflectedObject = Instantiate(obj, pos, rot);
         reflectedObjects.Add(obj, reflectedObject);
-        SpriteRenderer sr = reflectedObject.GetComponent<SpriteRenderer>();
-        sr.color = new Color(1, 0, 0, 0.5f);
+        reflectedObject.GetComponent<Reflectable>().UpdateReflect();
     }
 
     Vector2 ReflectAgainstAxis(Vector2 vec, Vector2 axis)
