@@ -1,55 +1,78 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ReflectMirror : MonoBehaviour
 {
-    public Transform objectToReflect;
-    public GameObject reflectedObject;
+    public Dictionary<GameObject, GameObject> reflectedObjects;
+
+    void Start()
+    {
+        reflectedObjects = new Dictionary<GameObject, GameObject>();
+    }
 
     void Update()
     {
-        // If the object to reflect is null, kill the reflected object
-        if (!objectToReflect)
+        // Remove any objects that have been destroyed
+        List<GameObject> toRemove = new List<GameObject>();
+        foreach (GameObject obj in reflectedObjects.Keys)
         {
-            print("Object to reflect is null");
-            if (reflectedObject)
+            if (obj == null)
             {
-                Destroy(reflectedObject);
+                toRemove.Add(obj);
             }
-            return;
         }
 
-        // If the object to reflect is null, define a new object to reflect
-        if (!reflectedObject) {
-            reflectedObject = Instantiate(objectToReflect.gameObject);
-            SpriteRenderer sr = reflectedObject.GetComponent<SpriteRenderer>();
-            sr.color = new Color(1, 0, 0, 0.5f);
-            sr.flipY = true;
+        foreach (GameObject obj in toRemove)
+        {
+            RemoveReflectedObject(obj);
         }
 
-        // Get all objects in a square 
-        
+        // Update the reflected objects
+        foreach (GameObject obj in reflectedObjects.Keys)
+        {
+            Reflect(obj);
+        }
+    }
+
+    public void Reflect(GameObject obj)
+    {
+
         // Get the angle relative to the x-axis
         Vector2 axis = Quaternion.Euler(0f, 0f, transform.rotation.eulerAngles.z) * Vector2.right;
 
         // Get the positions
         Vector2 mirrorPos = transform.position;
-        Vector2 objPosition = objectToReflect.transform.position;
+        Vector2 objPosition = obj.transform.position;
 
         // Get the reflected vector (based at the origin)
         Vector2 reflectVec = ReflectAgainstAxis(objPosition - mirrorPos, axis);
 
         // Move the reflected object to the reflected position
-        reflectedObject.transform.position = reflectVec + mirrorPos;
+        Vector2 reflectPos = reflectVec + mirrorPos;
 
         // Rotate the reflected object (black magic)
-        Quaternion newRot = Quaternion.FromToRotation(objectToReflect.transform.right, ReflectAgainstAxis(objectToReflect.transform.right, axis));
+        Quaternion newRot = Quaternion.FromToRotation(obj.transform.right, ReflectAgainstAxis(obj.transform.right, axis));
 
         // Set the rotation of the reflected object
-        reflectedObject.transform.rotation = objectToReflect.transform.rotation;
-        reflectedObject.transform.rotation *= newRot;
+        Quaternion reflectRot = obj.transform.rotation * newRot;
 
+        if (reflectedObjects.ContainsKey(obj))
+        {
+            reflectedObjects[obj].transform.position = reflectPos;
+            reflectedObjects[obj].transform.rotation = reflectRot;
+        } else {
+            CreateReflectedObject(obj, reflectPos, reflectRot);
+        }
+    }
+
+    public void CreateReflectedObject(GameObject obj, Vector2 pos, Quaternion rot)
+    {
+        GameObject reflectedObject = Instantiate(obj, pos, rot);
+        reflectedObjects.Add(obj, reflectedObject);
+        SpriteRenderer sr = reflectedObject.GetComponent<SpriteRenderer>();
+        sr.color = new Color(1, 0, 0, 0.5f);
     }
 
     Vector2 ReflectAgainstAxis(Vector2 vec, Vector2 axis)
@@ -57,6 +80,15 @@ public class ReflectMirror : MonoBehaviour
         Vector2 normAxis = axis.normalized;
         Vector2 projVec = Vector2.Dot(vec, normAxis) * normAxis;
         return 2f * projVec - vec;
+    }
+
+    public void RemoveReflectedObject(GameObject obj)
+    {
+        if (reflectedObjects.ContainsKey(obj))
+        {
+            Destroy(reflectedObjects[obj]);
+            reflectedObjects.Remove(obj);
+        }
     }
 }
 
