@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3641099563601441481}
   - component: {fileID: 3641099563601441482}
   - component: {fileID: 3641099563601441487}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Reflector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 3641099564513957821}
   - component: {fileID: 3641099564513957795}
   - component: {fileID: 3641099564513957794}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
