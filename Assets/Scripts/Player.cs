@@ -29,10 +29,14 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         bool isGrounded = IsGrounded();
+        bool isTouchingLeft = IsTouchingLeft();
+        bool isTouchingRight = IsTouchingRight();
+
+        Vector2 vel = rb.velocity;
+
         if (isGrounded)
         {
             Vector2 horizontalDirection = Vector2.zero;
-            Vector2 vel = rb.velocity;
 
             float coefficient = 1.0f;
 
@@ -45,11 +49,11 @@ public class Player : MonoBehaviour
                 horizontalDirection += Vector2.right;
             }
 
-
             if (math.sign(horizontalDirection.x) != math.sign(vel.x))
             {
                 coefficient = 2.0f;
             }
+
             rb.AddForce(coefficient * horizontalDirection * 20.0f);
 
             if (vel.x < -5.0f)
@@ -66,12 +70,62 @@ public class Player : MonoBehaviour
                 vel.y = 4.0f;
                 Debug.Log("jump");
             }
-            rb.velocity = vel;
-
         }
 
+        if (isTouchingLeft)
+        {
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                vel.y = 4.0f;
+                vel.x = 4.0f;
+            }
+        }
 
+        if (isTouchingRight)
+        {
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
+                vel.y = 4.0f;
+                vel.x = -4.0f;
+            }
+        }
+        rb.velocity = vel;
 
+    }
+    private bool IsTouchingLeft()
+    {
+        ContactFilter2D filter = new ContactFilter2D().NoFilter();
+        List<Collider2D> results = new List<Collider2D>();
+        if (leftSideTrigger.OverlapCollider(filter, results) > 0)
+        {
+            foreach (Collider2D col in results)
+            {
+                if (col != playerCollider)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private bool IsTouchingRight()
+    {
+        ContactFilter2D filter = new ContactFilter2D().NoFilter();
+        List<Collider2D> results = new List<Collider2D>();
+        if (rightSideTrigger.OverlapCollider(filter, results) > 0)
+        {
+            foreach (Collider2D col in results)
+            {
+                if (col != playerCollider)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     private bool IsGrounded()
