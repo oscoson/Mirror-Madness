@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3494202770354133538}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Mirrorable
+  m_TagString: Reflectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
