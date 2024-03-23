@@ -12,15 +12,13 @@ public class CreateMira : MonoBehaviour
     void Update()
     {
 
-        
         // Listen for a left mouse down
         if (Input.GetMouseButtonDown(0))
         {
             placing = true;
 
             // Get the mouse position
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0;
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             startPos = mousePos;
 
@@ -49,6 +47,25 @@ public class CreateMira : MonoBehaviour
 
             // Place the reflector
             PlaceReflector(startPos, mousePos);
+        }
+
+        // Listen for a right mouse down
+        if (Input.GetMouseButtonDown(1))
+        {
+            // Get the mouse position
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            startPos = mousePos;
+        }
+
+        // Listen for a right mouse up
+        if (Input.GetMouseButtonUp(1))
+        {
+            // Get the mouse position
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            // Place the reflector
+            PlaceReflector(startPos, mousePos, -1);
         }
     }
 
