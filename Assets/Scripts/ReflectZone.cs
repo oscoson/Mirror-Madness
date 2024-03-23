@@ -43,7 +43,7 @@ public class ReflectZone : MonoBehaviour
             }
         }
 
-        if (!isCollidingWithreflector && collider.gameObject.tag == "Reflectable" && !touching.Contains(collider))
+        if (!isCollidingWithreflector && collider.gameObject.tag == "Reflectable")
         {
             touching.Add(collider);
             reflector.Reflect(collider.gameObject);
