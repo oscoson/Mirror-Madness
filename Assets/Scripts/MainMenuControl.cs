@@ -11,23 +11,6 @@ public class MainMenuControl : MonoBehaviour
         SceneManager.LoadScene("Level 1"); // Load Level 1 scene
     }
 
-    // Method called when the Levels button is clicked
-    public void OpenLevels()
-    {
-        SceneManager.LoadScene("LevelSelector"); // Load Levels scene
-    }
-
-    public void OpenMainMenu()
-    {
-        SceneManager.LoadScene("MainMenu"); // Load MainMenu scene
-    }
-
-    // Method called when the Settings button is clicked
-    public void OpenSettings()
-    {
-        SceneManager.LoadScene("Settings"); // Load Settings scene
-    }
-
     // Method called when the Exit button is clicked
     public void ExitGame()
     {
