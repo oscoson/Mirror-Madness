@@ -4028,15 +4028,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3494202770354133540, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.9391847
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3494202770354133540, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.001854
+      value: -7.05
       objectReference: {fileID: 0}
     - target: {fileID: 3494202770354133540, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.1293087
+      value: -3.36
       objectReference: {fileID: 0}
     - target: {fileID: 3494202770354133540, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4078,6 +4078,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Reflectable
       objectReference: {fileID: 0}
+    - target: {fileID: 3494202770354133543, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
+      propertyPath: m_Size.x
+      value: 1.939185
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
 --- !u!4 &1762605623 stripped
@@ -4098,15 +4102,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3494202770354133540, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.9391847
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3494202770354133540, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.288146
+      value: 7.4
       objectReference: {fileID: 0}
     - target: {fileID: 3494202770354133540, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.1293087
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 3494202770354133540, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4146,8 +4150,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3494202770354133542, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
       propertyPath: m_TagString
-      value: Reflectable
+      value: UnReflectable
       objectReference: {fileID: 0}
+    - target: {fileID: 3494202770354133543, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
+      propertyPath: m_Size.x
+      value: 1.939185
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494202770354133543, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6a74ad4cee94a074b8f572647842383b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
 --- !u!4 &1795024255 stripped
