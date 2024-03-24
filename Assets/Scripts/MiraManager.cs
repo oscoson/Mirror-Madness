@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MiraManager : MonoBehaviour
 {
     [SerializeField] private int maxReflectorCount = 2;
     [SerializeField] private int maxRotatorCount = 2;
+    [SerializeField] AudioClip place1AudioClip;
+    [SerializeField] AudioClip place2AudioClip;
+    [SerializeField] AudioSource audioSource;
 
     private int reflectorCount = 0;
     private int rotatorCount = 0;
@@ -152,6 +156,9 @@ public class MiraManager : MonoBehaviour
                         {
                             // Place the reflector
                             PlaceReflector(startPos, mousePos);
+                            
+                            // Play a SFX
+                            audioSource.PlayOneShot(place1AudioClip);
                         }
                     }
                     else if (currentTool == "Rotator")
@@ -160,6 +167,9 @@ public class MiraManager : MonoBehaviour
                         {
                             // Place the rotator
                             PlaceRotator(startPos, mousePos);
+
+                            // Play a SFX
+                            audioSource.PlayOneShot(place2AudioClip);
                         }
                     }
                 }

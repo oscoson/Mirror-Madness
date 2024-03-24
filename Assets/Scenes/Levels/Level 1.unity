@@ -5762,6 +5762,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6721969473861336640, guid: b10bb808c08425245acf7c787ba990dd, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 378488964}
+    - target: {fileID: 6721969473861336640, guid: b10bb808c08425245acf7c787ba990dd, type: 3}
       propertyPath: maxRotatorCount
       value: 0
       objectReference: {fileID: 0}
