@@ -9,8 +9,16 @@ public class MiraManager : MonoBehaviour
     public GameObject rotatorPrefab;
     public float REFLECTOR_WIDTH = 0.2f;
     public bool placing = false;
+    private bool rotating = false;
 
     public string currentTool = "Reflector";
+
+    List<Rotator> rotators;
+
+    private void Awake()
+    {
+        rotators = new();
+    }
 
     void Update()
     {
@@ -28,49 +36,84 @@ public class MiraManager : MonoBehaviour
         }
 
     // ----------MOUSE INPUT----------
-
         // Listen for a left mouse down
         if (Input.GetMouseButtonDown(0))
         {
-            placing = true;
-
-            // Get the mouse position
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            startPos = mousePos;
-
-            // Listen for a shift key down
-            if (Input.GetKey(KeyCode.LeftShift))
+            // Check if handle clicked
+            RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos, Vector2.zero, 0);
+            foreach (RaycastHit2D hit in hits)
             {
-                placing = false;
-
-                // Delete the reflector if it is tagged as a reflector
-                Collider2D[] colliders = Physics2D.OverlapCircleAll(mousePos, 0.1f);
-                foreach (Collider2D collider in colliders)
+                if (hit.collider != null)
                 {
-                    if (collider.gameObject.tag == "Reflector")
+                    Handle handle = hit.collider.gameObject.GetComponent<Handle>();
+                    if (handle != null)
                     {
-                        Destroy(collider.gameObject);
+                        rotating = true;
+                        rotators.Add(hit.collider.gameObject.GetComponentInParent<Rotator>());
+                    }
+                }
+            }
+
+            if (!rotating)
+            {
+                placing = true;
+
+                // Get the mouse position
+
+                startPos = mousePos;
+
+                // Listen for a shift key down
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    placing = false;
+
+                    // Delete the reflector if it is tagged as a reflector
+                    Collider2D[] colliders = Physics2D.OverlapCircleAll(mousePos, 0.1f);
+                    foreach (Collider2D collider in colliders)
+                    {
+                        if (collider.gameObject.tag == "Reflector")
+                        {
+                            Destroy(collider.gameObject);
+                        }
                     }
                 }
             }
         }
 
-        // Listen for a left mouse up
-        if (Input.GetMouseButtonUp(0) && placing)
+        if (rotating)
         {
-            // Get the mouse position
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            if (currentTool == "Reflector")
+            foreach (Rotator rotator in rotators)
             {
-                // Place the reflector
-                PlaceReflector(startPos, mousePos);
+                Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                rotator.RotateTowards(mousePos);
             }
-            else if (currentTool == "Rotator")
+        }
+
+        // Listen for a left mouse up
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (rotating)
             {
-                // Place the rotator
-                PlaceRotator(startPos, mousePos);
+                rotators.Clear();
+                rotating = false;
+            }
+            else if (placing)
+            {
+                // Get the mouse position
+                Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                if (currentTool == "Reflector")
+                {
+                    // Place the reflector
+                    PlaceReflector(startPos, mousePos);
+                }
+                else if (currentTool == "Rotator")
+                {
+                    // Place the rotator
+                    PlaceRotator(startPos, mousePos);
+                }
             }
         }
 

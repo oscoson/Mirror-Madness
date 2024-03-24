@@ -6,6 +6,7 @@ public class Rotator : MonoBehaviour
 {
     public Dictionary<GameObject, GameObject> rotatedObjects;
     public static List<GameObject> rotators;
+    [SerializeField] private Handle handle;
 
     void Start()
     {
@@ -16,6 +17,10 @@ public class Rotator : MonoBehaviour
 
         rotators.Add(gameObject);
         rotatedObjects = new Dictionary<GameObject, GameObject>();
+
+        Transform shadow = transform.GetChild(0);
+        handle.transform.position = transform.position + shadow.localScale.x * 0.5f * Vector3.right;
+        handle.transform.localScale = 0.5f * Vector3.one;
     }
 
     void Update()
@@ -40,6 +45,13 @@ public class Rotator : MonoBehaviour
         {
             Rotate(obj);
         }
+    }
+
+    public void RotateTowards(Vector2 towardsVec)
+    {
+        Vector2 rotatorPos = transform.position;
+        float ang = Vector2.SignedAngle(Vector2.right, towardsVec - rotatorPos);
+        transform.rotation = Quaternion.Euler(0f, 0f, ang);
     }
 
     public void Rotate(GameObject obj)
