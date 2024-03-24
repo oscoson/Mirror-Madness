@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] Collider2D groundTrigger;
     [SerializeField] Collider2D leftSideTrigger;
     [SerializeField] Collider2D rightSideTrigger;
+    [SerializeField] GameObject reflector;
+    [SerializeField] GameObject rotator;
 
     Animator playerAnimator;
 
@@ -22,6 +25,10 @@ public class Player : MonoBehaviour
     float horizontalWallJumpSpeed = 4.0f;
 
     string currentPlayerScene;
+
+    // Access the MiraManager to find what the active gadget is
+    
+
 
 
     // Start is called before the first frame update
@@ -40,6 +47,20 @@ public class Player : MonoBehaviour
             pressedJump = true;
         }
 
+        GameObject miraManagerObject = GameObject.Find("CreateMira");
+        MiraManager miraManagerScript = miraManagerObject.GetComponent<MiraManager>();
+        string currentTool = miraManagerScript.currentTool;
+
+        if (currentTool == "Reflector")
+        {
+            SetTextColor(reflector, Color.white);
+            SetTextColor(rotator, Color.gray);
+        }
+        else if (currentTool == "Rotator")
+        {
+            SetTextColor(reflector, Color.gray);
+            SetTextColor(rotator, Color.white);
+        }
     }
 
     private void FixedUpdate()
@@ -142,6 +163,32 @@ public class Player : MonoBehaviour
         
         pressedJump = false;
     }
+
+
+    void SetTextColor(GameObject target, Color color)
+    {
+        Transform textTransform = target.transform.Find("Text");
+        
+        if (textTransform != null)
+        {
+            TextMeshProUGUI textMeshPro = textTransform.GetComponent<TextMeshProUGUI>();
+
+            if (textMeshPro != null)
+            {
+                textMeshPro.color = color;
+            }
+            else
+            {
+                Debug.LogWarning("TextMeshPro component not found on the 'Text' GameObject of " + target.name);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Child GameObject named 'Text' not found under the " + target.name + " GameObject");
+        }
+    }
+
+
     private bool IsTouchingLeft()
     {
         ContactFilter2D filter = new ContactFilter2D().NoFilter();
