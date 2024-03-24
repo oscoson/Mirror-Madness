@@ -3644,7 +3644,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3494202770354133542, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
+      propertyPath: m_TagString
+      value: UnReflectable
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3494202770354133538, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
+    - {fileID: 2954279068467902631, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
+    - {fileID: 8638488137928776192, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
 --- !u!1001 &877382064
 PrefabInstance:
@@ -3709,7 +3716,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3494202770354133542, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
+      propertyPath: m_TagString
+      value: UnReflectable
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3494202770354133538, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
+    - {fileID: 2954279068467902631, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
+    - {fileID: 8638488137928776192, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
 --- !u!1001 &959378373
 PrefabInstance:
@@ -4336,7 +4350,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3494202770354133542, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
+      propertyPath: m_TagString
+      value: UnReflectable
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3494202770354133538, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
+    - {fileID: 2954279068467902631, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
+    - {fileID: 8638488137928776192, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
 --- !u!1001 &2020577558
 PrefabInstance:
