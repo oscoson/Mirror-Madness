@@ -408,7 +408,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Placing Rotator:
 
-    Left-Click Center + Draw Circle around center'
+    Left-Click + Drag Out'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c585d86e9cc3b6546ac82b887d827172, type: 2}
   m_sharedMaterial: {fileID: -3989374080362464025, guid: c585d86e9cc3b6546ac82b887d827172, type: 2}
