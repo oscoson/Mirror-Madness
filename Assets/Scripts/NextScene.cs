@@ -26,9 +26,15 @@ public class NextScene : MonoBehaviour
             Destroy(collision.gameObject);
             // Get the index of the current scene
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-            // Load the next scene in the build settings
-            StartCoroutine(LoadLevel(currentSceneIndex));
+            if (currentSceneIndex == 10)
+            {
+                StartCoroutine(LoadLevel(-1));
+            }
+            else
+            {
+                // Load the next scene in the build settings
+                StartCoroutine(LoadLevel(currentSceneIndex));
+            }
         }
     }
 
