@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuControl : MonoBehaviour
 {
+    [SerializeField] float transitionTime;
+
     public void StartGame()
     {
-        SceneManager.LoadScene("Level 1"); // Load Level 1 scene
+        StartCoroutine(LoadLevel("Level 1")); // Load Level 1 scene
     }
 
     // Method called when the Exit button is clicked
@@ -21,33 +23,43 @@ public class MainMenuControl : MonoBehaviour
 
     public void OpenLevel1()
     {
-        SceneManager.LoadScene("Level 1"); // Load Level 1 scene
+        StartCoroutine(LoadLevel("Level 1")); // Load Level 1 scene
     }
 
     public void OpenLevel2()
     {
-        SceneManager.LoadScene("Level 2"); // Load Level 2 scene
+        StartCoroutine(LoadLevel("Level 2")); // Load Level 2 scene
     }
 
     public void OpenLevel3()
     {
-        SceneManager.LoadScene("Level 3"); // Load Level 3 scene
+        StartCoroutine(LoadLevel("Level 3")); // Load Level 3 scene
     }
 
     public void OpenLevel4()
     {
-        SceneManager.LoadScene("Level 4"); // Load Level 4 scene
+        StartCoroutine(LoadLevel("Level 4")); // Load Level 4 scene
     }
 
     public void OpenLevel5()
     {
-        SceneManager.LoadScene("Level 5"); // Load Level 5 scene
+        StartCoroutine(LoadLevel("Level 5")); // Load Level 5 scene
     }
 
     public void OpenLevel6()
     {
-        SceneManager.LoadScene("Level 6"); // Load Level 6 scene
+        StartCoroutine(LoadLevel("Level 6")); // Load Level 6 scene
     }
 
+
+    IEnumerator LoadLevel(string level)
+    {
+        PlayerPrefs.SetInt("NoTransition", 0);
+        GameObject.FindWithTag("Transition").GetComponent<Animator>().SetTrigger("EndLevel");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadSceneAsync(level);
+    }
 
 }

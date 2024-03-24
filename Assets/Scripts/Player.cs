@@ -23,7 +23,6 @@ public class Player : MonoBehaviour
 
     string currentPlayerScene;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +62,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.R))
         {
+            PlayerPrefs.SetInt("NoTransition", 1);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
