@@ -89,7 +89,10 @@ public class MiraManager : MonoBehaviour
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             // Place the reflector
-            PlaceReflector(startPos, mousePos, -1);
+            if (currentTool == "Reflector")
+            {
+                PlaceReflector(startPos, mousePos, -1);
+            }
         }
     }
 

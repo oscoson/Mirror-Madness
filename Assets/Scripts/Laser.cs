@@ -19,14 +19,14 @@ public class Laser : MonoBehaviour
     private void FixedUpdate()
     {
         var rotVec = Quaternion.Euler(0, 0, transform.eulerAngles.z) * (laserLength * Vector3.right);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, rotVec, laserLength);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, rotVec, laserLength, ~LayerMask.GetMask("Reflector"));
         lineRenderer.SetPosition(0, transform.position);
 
         if (hit)
         {
             lineRenderer.SetPosition(1, hit.point);
 
-             // player layer
+            // player layer
             if (hit.collider.gameObject.layer == 6)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
