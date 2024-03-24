@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Player : MonoBehaviour
     float horizontalSpeedCap = 5.0f;
     float verticalWallJumpSpeed = 4.0f;
     float horizontalWallJumpSpeed = 4.0f;
+
+    string currentPlayerScene;
 
 
     // Start is called before the first frame update
@@ -51,6 +54,11 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             horizontalDirection += 1f;
+        }
+        if (Input.GetKey(KeyCode.R))
+        {
+            Debug.Log("Pressed R");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         if (isGrounded)
