@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class MiraManager : MonoBehaviour
 {
+    [SerializeField] private int maxReflectorCount = 2;
+    [SerializeField] private int maxRotatorCount = 2;
+
+    private int reflectorCount = 0;
+    private int rotatorCount = 0;
+
+    public int MaxReflectorCount { get { return maxReflectorCount; } }
+    public int MaxRotatorCount { get { return maxRotatorCount; } }
+
+    public int ReflectorCount { get { return reflectorCount; } }
+    public int RotatorCount { get { return rotatorCount; } }
+
+
     private Vector2 startPos;
     public GameObject reflectorPrefab;
     public GameObject rotatorPrefab;
@@ -22,7 +35,6 @@ public class MiraManager : MonoBehaviour
 
     void Update()
     {
-
     // ----------KEYBOARD INPUT----------
 
         // Listen for a number 1 key down
@@ -75,6 +87,14 @@ public class MiraManager : MonoBehaviour
                     {
                         if (collider.gameObject.tag == "Reflector")
                         {
+                            if (collider.gameObject.GetComponent<Reflector>() != null)
+                            {
+                                reflectorCount--;
+                            }
+                            else if (collider.gameObject.GetComponent<Rotator>() != null)
+                            {
+                                rotatorCount--;
+                            }
                             Destroy(collider.gameObject);
                         }
                     }
@@ -106,13 +126,19 @@ public class MiraManager : MonoBehaviour
 
                 if (currentTool == "Reflector")
                 {
-                    // Place the reflector
-                    PlaceReflector(startPos, mousePos);
+                    if (reflectorCount < maxReflectorCount)
+                    {
+                        // Place the reflector
+                        PlaceReflector(startPos, mousePos);
+                    }
                 }
                 else if (currentTool == "Rotator")
                 {
-                    // Place the rotator
-                    PlaceRotator(startPos, mousePos);
+                    if (rotatorCount < maxRotatorCount)
+                    {
+                        // Place the rotator
+                        PlaceRotator(startPos, mousePos);
+                    }
                 }
             }
         }
@@ -135,7 +161,10 @@ public class MiraManager : MonoBehaviour
             // Place the reflector
             if (currentTool == "Reflector")
             {
-                PlaceReflector(startPos, mousePos, -1);
+                if (reflectorCount < maxReflectorCount)
+                {
+                    PlaceReflector(startPos, mousePos, -1);
+                }
             }
         }
     }
@@ -145,6 +174,7 @@ public class MiraManager : MonoBehaviour
         // Check if the prefab is not null
         if (reflectorPrefab != null)
         {
+            reflectorCount++;
             // Create a reflector
             GameObject reflector = Instantiate(reflectorPrefab, (startPos + endPos) / 2, Quaternion.identity) as GameObject;
 
@@ -161,6 +191,7 @@ public class MiraManager : MonoBehaviour
         // Check if the prefab is not null
         if (rotatorPrefab != null)
         {
+            rotatorCount++;
             // Create a rotator
             GameObject rotator = Instantiate(rotatorPrefab, startPos, Quaternion.identity) as GameObject;
 
