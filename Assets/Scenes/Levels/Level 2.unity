@@ -462,6 +462,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6279097156086115334, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 103244405}
+    - target: {fileID: 6279097156086115334, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6279097156086115334, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 314039279
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
 --- !u!1 &650764826

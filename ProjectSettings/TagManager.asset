@@ -51,6 +51,9 @@ TagManager:
   - name: Platforms
     uniqueID: 145306009
     locked: 0
+  - name: HUD
+    uniqueID: 314039279
+    locked: 0
   - name: Transition
     uniqueID: 3061657247
     locked: 0
