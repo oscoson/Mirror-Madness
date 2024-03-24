@@ -22,7 +22,7 @@ public class RotateZone : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, transform.localScale.x / 2);
         foreach (Collider2D collider in colliders)
         {
-            if (collider.gameObject.tag == "Reflectable")
+            if (collider.gameObject.tag == "Reflectable" && collider.gameObject.GetComponent<Reflectable>().reflections < Reflectable.maxReflections && !touching.Contains(collider))
             {
                 touching.Add(collider);
                 rotator.Rotate(collider.gameObject);
