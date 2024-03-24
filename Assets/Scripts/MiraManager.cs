@@ -54,6 +54,10 @@ public class MiraManager : MonoBehaviour
         rotatorPreview.SetActive(false);
     }
 
+    private void Start()
+    {
+        audioSource = GameObject.Find("Audio Source").GetComponent<AudioSource>();
+    }
     void Update()
     {
     // ----------KEYBOARD INPUT----------
