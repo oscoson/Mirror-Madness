@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 13257518016327389}
   - component: {fileID: 13257518016327388}
   - component: {fileID: 13257518016327384}
+  - component: {fileID: 1851136702}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -253,7 +254,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 395f6b9556f14704790df6035be6ee3a, type: 3}
+  m_Sprite: {fileID: -351223190, guid: 0bda65d54d3cce44e822914801fc6ac4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -298,8 +299,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.03}
-  m_Size: {x: 0.3, y: 0.52}
+  m_Offset: {x: -0.0057311333, y: -0.029446086}
+  m_Size: {x: 0.21885052, y: 0.5188929}
   m_Direction: 0
 --- !u!114 &13257518016327384
 MonoBehaviour:
@@ -316,3 +317,24 @@ MonoBehaviour:
   groundTrigger: {fileID: 13257517986129644}
   leftSideTrigger: {fileID: 13257517820651627}
   rightSideTrigger: {fileID: 13257516202595396}
+--- !u!95 &1851136702
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13257518016327391}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 74183df123bf8d14bbb5bef17132ee3c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

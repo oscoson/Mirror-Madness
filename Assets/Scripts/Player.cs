@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     [SerializeField] Collider2D leftSideTrigger;
     [SerializeField] Collider2D rightSideTrigger;
 
+    Animator playerAnimator;
+
     bool pressedJump = false;
     float horizontalSpeedCap = 5.0f;
     float verticalWallJumpSpeed = 6.0f;
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<CapsuleCollider2D>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,6 +39,7 @@ public class Player : MonoBehaviour
         {
             pressedJump = true;
         }
+
     }
 
     private void FixedUpdate()
@@ -49,20 +53,22 @@ public class Player : MonoBehaviour
         float horizontalDirection = 0.0f;
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
             horizontalDirection += -1f;
         }
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
             horizontalDirection += 1f;
         }
         if (Input.GetKey(KeyCode.R))
         {
-            Debug.Log("Pressed R");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
         if (isGrounded)
         {
+            playerAnimator.SetBool("isJumping", false);
             float coefficient = 0.5f;
             if (horizontalDirection >= 0f && vel.x < 0f)
             {
@@ -98,7 +104,9 @@ public class Player : MonoBehaviour
         }
         else
         {
+            playerAnimator.SetBool("isJumping", true);
             float coefficient = 0.1f;
+            
             if (horizontalDirection > 0f)
             {
                 vel.x += coefficient;
@@ -127,11 +135,11 @@ public class Player : MonoBehaviour
             }
 
         }
-
+        playerAnimator.SetBool("isRunning", Mathf.Abs(horizontalDirection) > Mathf.Epsilon);
+        
         vel.x = Mathf.Clamp(vel.x, -horizontalSpeedCap, horizontalSpeedCap);
-
-        rb.velocity = vel;
-
+        rb.velocity = vel;   
+        
         pressedJump = false;
     }
     private bool IsTouchingLeft()
