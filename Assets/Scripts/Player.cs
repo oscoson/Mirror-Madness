@@ -142,7 +142,7 @@ public class Player : MonoBehaviour
         {
             foreach (Collider2D col in results)
             {
-                if (col != playerCollider && col.gameObject.tag == "Reflectable")
+                if (col != playerCollider && (col.gameObject.tag == "Reflectable" ||  col.gameObject.tag == "UnReflectable"))
                 {
                     return true;
                 }
