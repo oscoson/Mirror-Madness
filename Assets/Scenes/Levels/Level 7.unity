@@ -3812,6 +3812,14 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.44
       objectReference: {fileID: 0}
@@ -3855,6 +3863,10 @@ PrefabInstance:
       propertyPath: m_Loop
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886115, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd360e4e463d468438a85cde83cb83c4, type: 3}
     - target: {fileID: 3844888870761886117, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_Name
       value: Laser (1)
@@ -3871,6 +3883,14 @@ PrefabInstance:
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3916,6 +3936,10 @@ PrefabInstance:
       propertyPath: m_Loop
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886115, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd360e4e463d468438a85cde83cb83c4, type: 3}
     - target: {fileID: 3844888870761886117, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_Name
       value: Laser

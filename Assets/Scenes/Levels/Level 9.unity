@@ -236,12 +236,20 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.13
+      value: -4.89
       objectReference: {fileID: 0}
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_LocalPosition.z
@@ -279,6 +287,10 @@ PrefabInstance:
       propertyPath: m_Loop
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886115, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd360e4e463d468438a85cde83cb83c4, type: 3}
     - target: {fileID: 3844888870761886117, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_Name
       value: Laser
@@ -660,6 +672,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.4
       objectReference: {fileID: 0}
@@ -703,6 +723,10 @@ PrefabInstance:
       propertyPath: m_Loop
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886115, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd360e4e463d468438a85cde83cb83c4, type: 3}
     - target: {fileID: 3844888870761886117, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_Name
       value: Laser (1)
@@ -4123,12 +4147,20 @@ PrefabInstance:
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.41
       objectReference: {fileID: 0}
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.93
+      value: -4.77
       objectReference: {fileID: 0}
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4166,6 +4198,10 @@ PrefabInstance:
       propertyPath: m_Loop
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886115, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd360e4e463d468438a85cde83cb83c4, type: 3}
     - target: {fileID: 3844888870761886117, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_Name
       value: Laser (4)
@@ -4325,6 +4361,14 @@ PrefabInstance:
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.57
       objectReference: {fileID: 0}
@@ -4368,6 +4412,10 @@ PrefabInstance:
       propertyPath: m_Loop
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886115, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd360e4e463d468438a85cde83cb83c4, type: 3}
     - target: {fileID: 3844888870761886117, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_Name
       value: Laser (5)
@@ -4497,12 +4545,20 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.28
       objectReference: {fileID: 0}
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.15
+      value: -4.83
       objectReference: {fileID: 0}
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4540,6 +4596,10 @@ PrefabInstance:
       propertyPath: m_Loop
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886115, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd360e4e463d468438a85cde83cb83c4, type: 3}
     - target: {fileID: 3844888870761886117, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_Name
       value: Laser (2)
@@ -4650,8 +4710,16 @@ PrefabInstance:
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.28
+      value: -8.69
       objectReference: {fileID: 0}
     - target: {fileID: 3844888870761886112, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4693,6 +4761,10 @@ PrefabInstance:
       propertyPath: m_Loop
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3844888870761886115, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cd360e4e463d468438a85cde83cb83c4, type: 3}
     - target: {fileID: 3844888870761886117, guid: 8156f0cb36773b64789cfaf5b576eb06, type: 3}
       propertyPath: m_Name
       value: Laser (3)
