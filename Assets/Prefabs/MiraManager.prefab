@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1024968770356849905}
-  - component: {fileID: 1024968770356849906}
+  - component: {fileID: 6721969473861336640}
   m_Layer: 0
-  m_Name: CreateMira
+  m_Name: MiraManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1024968770356849906
+--- !u!114 &6721969473861336640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,8 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1024968770356849904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d590895798751b4ca0f94bddae6469f, type: 3}
+  m_Script: {fileID: 11500000, guid: 66c6395420be7fd4aa3fb8a5a8dd0388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   reflectorPrefab: {fileID: 3641099563601441483, guid: e77a2e5f9fdac1c4d96d0a1c047f1019, type: 3}
-  MIRA_WIDTH: 0.2
+  rotatorPrefab: {fileID: 3641099563601441483, guid: 4fc547eb72cf7e545bc9c2ea44a48fbb, type: 3}
+  REFLECTOR_WIDTH: 0.2
+  placing: 0
+  currentTool: Reflector
