@@ -2,15 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateMira : MonoBehaviour
+public class MiraManager : MonoBehaviour
 {
     private Vector2 startPos;
     public GameObject reflectorPrefab;
-    public float MIRA_WIDTH = 0.2f;
+    public GameObject rotatorPrefab;
+    public float REFLECTOR_WIDTH = 0.2f;
     public bool placing = false;
+
+    public string currentTool = "Reflector";
 
     void Update()
     {
+
+    // ----------KEYBOARD INPUT----------
+
+        // Listen for a number 1 key down
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            currentTool = "Reflector";
+        } else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            currentTool = "Rotator";
+        }
+
+    // ----------MOUSE INPUT----------
 
         // Listen for a left mouse down
         if (Input.GetMouseButtonDown(0))
@@ -45,8 +61,16 @@ public class CreateMira : MonoBehaviour
             // Get the mouse position
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            // Place the reflector
-            PlaceReflector(startPos, mousePos);
+            if (currentTool == "Reflector")
+            {
+                // Place the reflector
+                PlaceReflector(startPos, mousePos);
+            }
+            else if (currentTool == "Rotator")
+            {
+                // Place the rotator
+                PlaceRotator(startPos, mousePos);
+            }
         }
 
         // Listen for a right mouse down
@@ -78,10 +102,30 @@ public class CreateMira : MonoBehaviour
             GameObject reflector = Instantiate(reflectorPrefab, (startPos + endPos) / 2, Quaternion.identity) as GameObject;
 
             // Set the scale of the reflector
-            reflector.transform.localScale = new Vector3(Vector2.Distance(startPos, endPos), MIRA_WIDTH, 1);
+            reflector.transform.localScale = new Vector3(Vector2.Distance(startPos, endPos), REFLECTOR_WIDTH, 1);
 
             // Set the rotation of the reflector
             reflector.transform.rotation = Quaternion.FromToRotation(Vector2.right, inverse * (endPos - startPos));
+        }
+    }
+
+    void PlaceRotator(Vector2 startPos, Vector2 endPos)
+    {
+        // Check if the prefab is not null
+        if (rotatorPrefab != null)
+        {
+            // Create a rotator
+            GameObject rotator = Instantiate(rotatorPrefab, startPos, Quaternion.identity) as GameObject;
+
+            // Set the scale of the rotator
+            Vector2 dist = (endPos - startPos) * 2;
+            float mag = dist.magnitude;
+
+            // Get the transform of the child
+            Transform shadow = rotator.transform.GetChild(0);
+
+            // Set the scale of the child
+            shadow.localScale = new Vector3(mag, mag, mag);
         }
     }
 }
