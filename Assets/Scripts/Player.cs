@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
 
     bool pressedJump = false;
     float horizontalSpeedCap = 5.0f;
-    float verticalWallJumpSpeed = 4.0f;
+    float verticalWallJumpSpeed = 6.0f;
     float horizontalWallJumpSpeed = 4.0f;
 
     string currentPlayerScene;
@@ -64,7 +64,6 @@ public class Player : MonoBehaviour
         if (isGrounded)
         {
             float coefficient = 0.5f;
-
             if (horizontalDirection >= 0f && vel.x < 0f)
             {
                 if (horizontalDirection == 0f)
@@ -161,7 +160,7 @@ public class Player : MonoBehaviour
         {
             foreach (Collider2D col in results)
             {
-                if (col != playerCollider && col.gameObject.tag == "Reflectable")
+                if (col != playerCollider && (col.gameObject.tag == "Reflectable" ||  col.gameObject.tag == "UnReflectable"))
                 {
                     return true;
                 }
@@ -179,7 +178,7 @@ public class Player : MonoBehaviour
         {
             foreach (Collider2D col in results)
             {
-                if (col != playerCollider && col.gameObject.tag == "Reflectable")
+                if (col != playerCollider && (col.gameObject.tag == "Reflectable" ||  col.gameObject.tag == "UnReflectable"))
                 {
                     return true;
                 }

@@ -9,6 +9,7 @@ TagManager:
   - Reflector
   - Spawn
   - Hazard
+  - UnReflectable
   layers:
   - Default
   - TransparentFX
