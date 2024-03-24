@@ -18,8 +18,8 @@ public class MiraCount : MonoBehaviour
 
     private void Update()
     {
-        reflectorText.text = $"| Remaining: {(miraManager.MaxReflectorCount - miraManager.ReflectorCount)}" ;
-        rotatorText.text = $"| Remaining: {(miraManager.MaxRotatorCount - miraManager.RotatorCount)}";
+        reflectorText.text = $": {(miraManager.MaxReflectorCount - miraManager.ReflectorCount)}" ;
+        rotatorText.text = $": {(miraManager.MaxRotatorCount - miraManager.RotatorCount)}";
     }
 
 }
