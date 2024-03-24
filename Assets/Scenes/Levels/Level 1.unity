@@ -4269,6 +4269,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6721969473861336640, guid: b10bb808c08425245acf7c787ba990dd, type: 3}
+      propertyPath: maxRotatorCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721969473861336640, guid: b10bb808c08425245acf7c787ba990dd, type: 3}
+      propertyPath: maxReflectorCount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b10bb808c08425245acf7c787ba990dd, type: 3}
 --- !u!1001 &5560663169753813379
