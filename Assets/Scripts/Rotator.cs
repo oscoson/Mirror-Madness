@@ -81,5 +81,20 @@ public class Rotator : MonoBehaviour
             rotatedObjects.Remove(obj);
         }
     }
+
+    void OnDestroy()
+    {
+        // Delete all reflected objects
+        foreach (GameObject obj in rotatedObjects.Values)
+        {
+            Destroy(obj);
+        }
+
+        // Remove the reflector from the list of reflectors
+        rotators.Remove(gameObject);
+
+        // Destroy the reflector
+        Destroy(gameObject);
+    }
 }
 
