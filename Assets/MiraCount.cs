@@ -14,9 +14,12 @@ public class MiraCount : MonoBehaviour
     void Start()
     {
         miraManager = FindAnyObjectByType<MiraManager>();
+    }
 
-        reflectorText.text = reflectorText.text + miraManager.MaxReflectorCount;
-        rotatorText.text = rotatorText.text + miraManager.MaxRotatorCount;
+    private void Update()
+    {
+        reflectorText.text = $"| Remaining: {(miraManager.MaxReflectorCount - miraManager.ReflectorCount)}" ;
+        rotatorText.text = $"| Remaining: {(miraManager.MaxRotatorCount - miraManager.RotatorCount)}";
     }
 
 }
