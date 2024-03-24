@@ -154,22 +154,18 @@ public class MiraManager : MonoBehaviour
                     {
                         if (reflectorCount < maxReflectorCount)
                         {
-                            // Place the reflector
-                            PlaceReflector(startPos, mousePos);
-                            
-                            // Play a SFX
                             audioSource.PlayOneShot(place1AudioClip);
+                            // Place the reflector
+                            PlaceReflector(startPos, mousePos);                            
                         }
                     }
                     else if (currentTool == "Rotator")
                     {
                         if (rotatorCount < maxRotatorCount)
                         {
+                            audioSource.PlayOneShot(place2AudioClip);
                             // Place the rotator
                             PlaceRotator(startPos, mousePos);
-
-                            // Play a SFX
-                            audioSource.PlayOneShot(place2AudioClip);
                         }
                     }
                 }
