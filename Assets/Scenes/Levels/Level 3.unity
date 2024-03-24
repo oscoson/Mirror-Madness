@@ -675,12 +675,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3494202770354133542, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
       propertyPath: m_TagString
-      value: Reflectable
+      value: UnReflectable
       objectReference: {fileID: 0}
     - target: {fileID: 3494202770354133543, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
       propertyPath: m_Size.x
       value: 1.43211
       objectReference: {fileID: 0}
+    - target: {fileID: 3494202770354133543, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6a74ad4cee94a074b8f572647842383b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
 --- !u!4 &1624720840 stripped
@@ -749,12 +753,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3494202770354133542, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
       propertyPath: m_TagString
-      value: Reflectable
+      value: UnReflectable
       objectReference: {fileID: 0}
     - target: {fileID: 3494202770354133543, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
       propertyPath: m_Size.x
       value: 3.182066
       objectReference: {fileID: 0}
+    - target: {fileID: 3494202770354133543, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6a74ad4cee94a074b8f572647842383b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffef69fb92c7bbb428433a2a88eb9038, type: 3}
 --- !u!4 &1649861775 stripped
