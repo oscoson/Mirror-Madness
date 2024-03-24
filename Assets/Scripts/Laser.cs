@@ -29,7 +29,7 @@ public class Laser : MonoBehaviour
             // player layer
             if (hit.collider.gameObject.layer == 6)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                FindObjectOfType<Player>().transform.position = GameObject.FindWithTag("Spawn").transform.position;
             }
         }
         else

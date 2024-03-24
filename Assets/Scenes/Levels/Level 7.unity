@@ -351,6 +351,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6087238114802918057, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c585d86e9cc3b6546ac82b887d827172, type: 2}
+    - target: {fileID: 6087238114802918057, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3989374080362464025, guid: c585d86e9cc3b6546ac82b887d827172, type: 2}
     - target: {fileID: 6279097156086115334, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
       propertyPath: m_Camera
       value: 
@@ -363,6 +371,14 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 314039279
       objectReference: {fileID: 0}
+    - target: {fileID: 6711630029946448870, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c585d86e9cc3b6546ac82b887d827172, type: 2}
+    - target: {fileID: 6711630029946448870, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3989374080362464025, guid: c585d86e9cc3b6546ac82b887d827172, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
 --- !u!1001 &874950408
