@@ -8,6 +8,8 @@ public class Rotator : MonoBehaviour
     public static List<GameObject> rotators;
     [SerializeField] private Handle handle;
 
+    Vector2 baseDirection = Vector2.right;
+
     void Start()
     {
         if (rotators == null)
@@ -19,7 +21,9 @@ public class Rotator : MonoBehaviour
         rotatedObjects = new Dictionary<GameObject, GameObject>();
 
         Transform shadow = transform.GetChild(0);
-        handle.transform.position = transform.position + shadow.localScale.x * 0.5f * Vector3.right;
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        baseDirection = (mousePos - (Vector2)transform.position).normalized;
+        handle.transform.position = transform.position + shadow.localScale.x * 0.5f * (Vector3) baseDirection;
         handle.transform.localScale = 0.5f * Vector3.one;
     }
 
@@ -50,7 +54,7 @@ public class Rotator : MonoBehaviour
     public void RotateTowards(Vector2 towardsVec)
     {
         Vector2 rotatorPos = transform.position;
-        float ang = Vector2.SignedAngle(Vector2.right, towardsVec - rotatorPos);
+        float ang = Vector2.SignedAngle(baseDirection, towardsVec - rotatorPos);
         transform.rotation = Quaternion.Euler(0f, 0f, ang);
     }
 

@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
             pressedJump = true;
         }
 
-        GameObject miraManagerObject = GameObject.Find("CreateMira");
+        GameObject miraManagerObject = GameObject.FindGameObjectWithTag("MiraManager");
         MiraManager miraManagerScript = miraManagerObject.GetComponent<MiraManager>();
         string currentTool = miraManagerScript.currentTool;
 
