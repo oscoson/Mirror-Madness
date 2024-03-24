@@ -70,7 +70,7 @@ public class Rotator : MonoBehaviour
     {
         GameObject rotatedObject = Instantiate(obj, pos, rot);
         rotatedObjects.Add(obj, rotatedObject);
-        rotatedObject.GetComponent<Rotatable>().UpdateRotate();
+        rotatedObject.GetComponent<Reflectable>().UpdateReflect();
     }
 
     public void RemoveReflectedObject(GameObject obj)

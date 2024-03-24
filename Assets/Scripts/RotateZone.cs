@@ -14,37 +14,26 @@ public class RotateZone : MonoBehaviour
 
     void Start()
     {
-        touching = new List<Collider2D>();
         rotator = GetComponentInParent<Rotator>();
+
+        touching = new List<Collider2D>();
+
+        // Grab all overlapped objects
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, transform.localScale.x / 2);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.tag == "Reflectable")
+            {
+                touching.Add(collider);
+                rotator.Rotate(collider.gameObject);
+            }
+        }
 
         sr = GetComponent<SpriteRenderer>();
         sr.color = new Color(0, 0, 0, 0.25f);
 
-        // Set the size of the shadow to be a square with length the same as the x scale of the parent
-        transform.localScale = 5f * Vector3.one;
-
         // Sit on the bottom of the parent
         transform.localPosition = new Vector3(0, 0, 0);
-    }
-
-    void OnTriggerStay2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Reflectable" &&
-            collider.gameObject.GetComponent<Rotatable>().rotations < Rotatable.maxRotations &&
-            !touching.Contains(collider))
-        {
-            touching.Add(collider);
-            rotator.Rotate(collider.gameObject);
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Reflectable" && touching.Contains(collider))
-        {
-            touching.Remove(collider);
-            rotator.RemoveReflectedObject(collider.gameObject);
-        }
     }
 
 }
