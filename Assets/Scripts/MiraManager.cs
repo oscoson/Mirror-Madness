@@ -16,6 +16,7 @@ public class MiraManager : MonoBehaviour
     public int ReflectorCount { get { return reflectorCount; } }
     public int RotatorCount { get { return rotatorCount; } }
 
+    private float minReflectLen = 0.05f;
 
     private Vector2 startPos;
     public GameObject reflectorPrefab;
@@ -68,35 +69,32 @@ public class MiraManager : MonoBehaviour
                 }
             }
 
-            if (!rotating)
+            placing = true;
+
+            // Get the mouse position
+
+            startPos = mousePos;
+
+            // Listen for a shift key down
+            if (Input.GetKey(KeyCode.LeftShift))
             {
-                placing = true;
+                placing = false;
 
-                // Get the mouse position
-
-                startPos = mousePos;
-
-                // Listen for a shift key down
-                if (Input.GetKey(KeyCode.LeftShift))
+                // Delete the reflector if it is tagged as a reflector
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(mousePos, 0.1f);
+                foreach (Collider2D collider in colliders)
                 {
-                    placing = false;
-
-                    // Delete the reflector if it is tagged as a reflector
-                    Collider2D[] colliders = Physics2D.OverlapCircleAll(mousePos, 0.1f);
-                    foreach (Collider2D collider in colliders)
+                    if (collider.gameObject.tag == "Reflector")
                     {
-                        if (collider.gameObject.tag == "Reflector")
+                        if (collider.gameObject.GetComponent<Reflector>() != null)
                         {
-                            if (collider.gameObject.GetComponent<Reflector>() != null)
-                            {
-                                reflectorCount--;
-                            }
-                            else if (collider.gameObject.GetComponent<Rotator>() != null)
-                            {
-                                rotatorCount--;
-                            }
-                            Destroy(collider.gameObject);
+                            reflectorCount--;
                         }
+                        else if (collider.gameObject.GetComponent<Rotator>() != null)
+                        {
+                            rotatorCount--;
+                        }
+                        Destroy(collider.gameObject);
                     }
                 }
             }
@@ -107,7 +105,10 @@ public class MiraManager : MonoBehaviour
             foreach (Rotator rotator in rotators)
             {
                 Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                rotator.RotateTowards(mousePos);
+                if (rotator != null)
+                {
+                    rotator?.RotateTowards(mousePos);
+                }
             }
         }
 
@@ -124,20 +125,23 @@ public class MiraManager : MonoBehaviour
                 // Get the mouse position
                 Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-                if (currentTool == "Reflector")
+                if ((startPos - mousePos).magnitude >= minReflectLen)
                 {
-                    if (reflectorCount < maxReflectorCount)
+                    if (currentTool == "Reflector")
                     {
-                        // Place the reflector
-                        PlaceReflector(startPos, mousePos);
+                        if (reflectorCount < maxReflectorCount)
+                        {
+                            // Place the reflector
+                            PlaceReflector(startPos, mousePos);
+                        }
                     }
-                }
-                else if (currentTool == "Rotator")
-                {
-                    if (rotatorCount < maxRotatorCount)
+                    else if (currentTool == "Rotator")
                     {
-                        // Place the rotator
-                        PlaceRotator(startPos, mousePos);
+                        if (rotatorCount < maxRotatorCount)
+                        {
+                            // Place the rotator
+                            PlaceRotator(startPos, mousePos);
+                        }
                     }
                 }
             }
@@ -158,12 +162,15 @@ public class MiraManager : MonoBehaviour
             // Get the mouse position
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            // Place the reflector
-            if (currentTool == "Reflector")
+            if ((startPos - mousePos).magnitude >= minReflectLen)
             {
-                if (reflectorCount < maxReflectorCount)
+                // Place the reflector
+                if (currentTool == "Reflector")
                 {
-                    PlaceReflector(startPos, mousePos, -1);
+                    if (reflectorCount < maxReflectorCount)
+                    {
+                        PlaceReflector(startPos, mousePos, -1);
+                    }
                 }
             }
         }
