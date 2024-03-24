@@ -11,6 +11,7 @@ TagManager:
   - Hazard
   - UnReflectable
   - Transition
+  - MiraManager
   layers:
   - Default
   - TransparentFX
