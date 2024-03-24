@@ -220,61 +220,46 @@ public class MiraManager : MonoBehaviour
 
             if (currentTool == "Reflector")
             {
-                if (reflectorCount < maxReflectorCount)
-                {
-                    reflectorPreview.SetActive(true);
-                    rotatorPreview.SetActive(false);
+                reflectorPreview.SetActive(true);
+                rotatorPreview.SetActive(false);
 
-                    reflectorPreview.transform.position = (mousePos - startPos) * 0.5f + startPos;
-                    // Set the scale of the reflector
-                    reflectorPreview.transform.localScale = new Vector3(Vector2.Distance(startPos, mousePos), REFLECTOR_WIDTH, 1);
+                reflectorPreview.transform.position = (mousePos - startPos) * 0.5f + startPos;
+                // Set the scale of the reflector
+                reflectorPreview.transform.localScale = new Vector3(Vector2.Distance(startPos, mousePos), REFLECTOR_WIDTH, 1);
 
-                    int inverse = Input.GetMouseButton(0) ? 1 : -1;
-                    // Set the rotation of the reflector
-                    reflectorPreview.transform.rotation = Quaternion.FromToRotation(Vector2.right, inverse * (mousePos - startPos));
+                int inverse = Input.GetMouseButton(0) ? 1 : -1;
+                // Set the rotation of the reflector
+                reflectorPreview.transform.rotation = Quaternion.FromToRotation(Vector2.right, inverse * (mousePos - startPos));
 
 
 
-                    Transform shadow = reflectorPreview.transform.GetChild(0);
+                Transform shadow = reflectorPreview.transform.GetChild(0);
 
-                    // Set the size of the shadow to be a square with length the same as the x scale of the parent
-                    shadow.transform.localScale = new Vector3(1, reflectorPreview.transform.localScale.x / reflectorPreview.transform.localScale.y, 1);
+                // Set the size of the shadow to be a square with length the same as the x scale of the parent
+                shadow.transform.localScale = new Vector3(1, reflectorPreview.transform.localScale.x / reflectorPreview.transform.localScale.y, 1);
 
-                    // Sit on the bottom of the parent
-                    shadow.transform.localPosition = new Vector3(0, -shadow.transform.localScale.y / 2 - 1, 0);
-                }
-                else
-                {
-                    reflectorPreview.SetActive(false);
-                    rotatorPreview.SetActive(false);
-                }
+                // Sit on the bottom of the parent
+                shadow.transform.localPosition = new Vector3(0, -shadow.transform.localScale.y / 2 - 1, 0);
+
+
             }
             else if (currentTool == "Rotator")
             {
-                if (rotatorCount < maxRotatorCount)
-                {
-                    rotatorPreview.SetActive(true);
-                    reflectorPreview.SetActive(false);
+                rotatorPreview.SetActive(true);
+                reflectorPreview.SetActive(false);
 
-                    rotatorPreview.transform.position = startPos;
+                rotatorPreview.transform.position = startPos;
 
 
-                    // Set the scale of the rotator
-                    Vector2 dist = (mousePos - startPos) * 2;
-                    float mag = dist.magnitude;
+                // Set the scale of the rotator
+                Vector2 dist = (mousePos - startPos) * 2;
+                float mag = dist.magnitude;
 
-                    // Get the transform of the child
-                    Transform shadow = rotatorPreview.transform.GetChild(0);
+                // Get the transform of the child
+                Transform shadow = rotatorPreview.transform.GetChild(0);
 
-                    // Set the scale of the child
-                    shadow.localScale = new Vector3(mag, mag, mag);
-                }
-                else
-                {
-                    reflectorPreview.SetActive(false);
-                    rotatorPreview.SetActive(false);
-                }
-
+                // Set the scale of the child
+                shadow.localScale = new Vector3(mag, mag, mag);
             }
         }
     }
