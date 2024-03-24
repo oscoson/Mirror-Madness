@@ -4752,7 +4752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5483293309229890636, guid: d3ec9fb6c9956b24a9e9149624b8fd17, type: 3}
       propertyPath: m_Name
-      value: Unreflectable Wall
+      value: Ending Platform
       objectReference: {fileID: 0}
     - target: {fileID: 5483293309229890638, guid: d3ec9fb6c9956b24a9e9149624b8fd17, type: 3}
       propertyPath: m_Size.x
