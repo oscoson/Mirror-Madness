@@ -21,6 +21,7 @@ public class MiraManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             currentTool = "Reflector";
+            
         } else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             currentTool = "Rotator";
