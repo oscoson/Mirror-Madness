@@ -3863,6 +3863,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 26976807752181171, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 391
+      objectReference: {fileID: 0}
+    - target: {fileID: 26976807752181171, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -321
+      objectReference: {fileID: 0}
     - target: {fileID: 6087238114802918057, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -3891,6 +3899,14 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -3989374080362464025, guid: c585d86e9cc3b6546ac82b887d827172, type: 2}
+    - target: {fileID: 7146516371186106544, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 391
+      objectReference: {fileID: 0}
+    - target: {fileID: 7146516371186106544, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -241
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40fca9c1ff24edf4982c148dfa013094, type: 3}
 --- !u!1 &1452582345 stripped
