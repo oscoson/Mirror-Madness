@@ -51,6 +51,26 @@ public class MainMenuControl : MonoBehaviour
         StartCoroutine(LoadLevel("Level 6")); // Load Level 6 scene
     }
 
+        public void OpenLevel7()
+    {
+        StartCoroutine(LoadLevel("Level 7")); // Load Level 3 scene
+    }
+
+    public void OpenLevel8()
+    {
+        StartCoroutine(LoadLevel("Level 8")); // Load Level 4 scene
+    }
+
+    public void OpenLevel9()
+    {
+        StartCoroutine(LoadLevel("Level 9")); // Load Level 5 scene
+    }
+
+    public void OpenLevel10()
+    {
+        StartCoroutine(LoadLevel("Level 10")); // Load Level 6 scene
+    }
+
 
     IEnumerator LoadLevel(string level)
     {
